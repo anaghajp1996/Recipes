@@ -10,16 +10,19 @@ import SwiftUI
 struct DessertsView: View {
     var body: some View {
         List {
-            NavigationLink ( destination: DessertDetailsView()) {
-                Text("Desserts")
-                }
+            
             }.navigationTitle("Desserts")
-        }
+            .onAppear() {
+                RecipesNetwork.getDessertsList()
+            }
     }
+}
 
 
 struct DessertsView_Previews: PreviewProvider {
     static var previews: some View {
-        DessertsView()
+        NavigationView {
+            DessertsView()
+        }
     }
 }

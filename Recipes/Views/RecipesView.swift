@@ -12,7 +12,7 @@ struct RecipesView: View {
         List {
             NavigationLink ( destination: DessertsView()) {
                 Text("Desserts")
-                }
+            }
             }.navigationTitle("Recipes")
         }
     }
