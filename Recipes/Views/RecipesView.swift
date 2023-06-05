@@ -13,9 +13,9 @@ struct RecipesView: View {
             NavigationLink ( destination: DessertsView()) {
                 Text("Desserts")
             }
-            }.navigationTitle("Recipes")
-        }
+        }.navigationTitle("Recipes")
     }
+}
 
 struct RecipesView_Previews: PreviewProvider {
     static var previews: some View {
