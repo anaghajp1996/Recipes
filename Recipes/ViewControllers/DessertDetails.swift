@@ -9,7 +9,7 @@ import Foundation
 
 let getDessertByID = "https://themealdb.com/api/json/v1/1/lookup.php?i="
 
-public class RecipeDetailViewModel: ObservableObject {
+public class DessertDetailsViewModel: ObservableObject {
     @Published var recipe = Recipe()
     
     func getDessertInformation(id: String) async {

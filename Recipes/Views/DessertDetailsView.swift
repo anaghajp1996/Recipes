@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DessertDetailsView: View {
-    @StateObject private var recipeDetailVM = RecipeDetailViewModel()
+    @StateObject private var recipeDetailVM = DessertDetailsViewModel()
     @Binding var dessert: Dessert
     var body: some View {
         ScrollView {

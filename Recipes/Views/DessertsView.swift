@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DessertsView: View {
-    @StateObject private var recipesVM = RecipeNetworkViewModel()
+    @StateObject private var recipesVM = DessertsViewModel()
     var body: some View {
         List ($recipesVM.desserts, id: \.idMeal) { $dessert in
             NavigationLink ( destination: DessertDetailsView(dessert: $dessert)) {

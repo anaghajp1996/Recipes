@@ -9,7 +9,7 @@ import Foundation
 
 let getDesserts = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
 
-public class RecipeNetworkViewModel: ObservableObject {
+public class DessertsViewModel: ObservableObject {
   @Published var desserts = [Dessert]()
     
    @MainActor
