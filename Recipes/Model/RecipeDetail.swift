@@ -21,8 +21,9 @@ struct Recipe : Codable {
         for (key, value) in recipeDetails {
             if key.starts(with: "strIngredient") {
                 if let value = value {
-                    if value.isEmpty { return } 
-                    ingredientsList.append(value)
+                    if !value.isEmpty {
+                        ingredientsList.append(value)
+                    }
                 }
             }
         }
