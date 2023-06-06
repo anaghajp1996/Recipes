@@ -8,11 +8,11 @@
 import Foundation
 
 let getDesserts = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
-let getDessertByID = "https://themealdb.com/api/json/v1/1/lookup.php?i="
 
 public class RecipeNetworkViewModel: ObservableObject {
   @Published var desserts = [Dessert]()
     
+   @MainActor
    func getDessertsList() {
         if let url = URL(string: getDesserts)  {
             URLSession.shared.dataTask(with: url) {(data, response, error) in
