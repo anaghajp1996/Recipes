@@ -11,22 +11,22 @@ struct DessertDetailsView: View {
     @StateObject private var recipeDetailVM = RecipeDetailViewModel()
     @Binding var dessert: Dessert
     var body: some View {
-        NavigationView {
-            ScrollView {
+        ScrollView {
+            VStack() {
+                Text(dessert.strMeal).font(.largeTitle).multilineTextAlignment(.center)
+                ImageView(imageURL: $dessert.strMealThumb)
                 VStack(alignment: .leading) {
-                    ImageView(imageURL: $dessert.strMealThumb)
-                    Text("Ingredients").font(.title)
+                    Text("Ingredients").font(.title).padding(.vertical, 10)
                     ForEach ($recipeDetailVM.recipe.ingredients, id: \.self) { ingredient in
-                        Text("*" + ingredient.wrappedValue)
+                        Text("* " + ingredient.wrappedValue)
                     }
-                    Text("Instructions").font(.title)
+                    Text("Instructions").font(.title).padding(.vertical, 10)
                     Text(recipeDetailVM.recipe.strInstructions ?? "").fixedSize(horizontal: false, vertical: false)
-                }.padding(20)
-                .task {
-                    await recipeDetailVM.getDessertInformation(id: dessert.idMeal)
                 }
+            }.padding(.horizontal, 20)
+            .task {
+                await recipeDetailVM.getDessertInformation(id: dessert.idMeal)
             }
-        }.navigationTitle(dessert.strMeal)
-            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
